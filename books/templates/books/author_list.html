@@ -1,0 +1,25 @@
+{% extends '../base.html' %}
+
+{% block title %}
+    Authors
+{% endblock %}
+
+
+{% block content %}
+    
+    <h1>Authors</h1>
+
+    <ul class="list-group">
+        {% for author in author_list %}
+        <li class="list-group-item">
+            <a href="{% url 'books:author_detail' author.id %}" class="text-reset">{{author.name}}</a>
+        </li>
+        {% endfor %}
+
+        <p class="pt-2">
+            <a href="{% url 'books:home' %}" role="button" class="btn btn-secondary w-100">Cancel</a>
+        </p>
+    </ul>
+
+{% endblock %}
+
