@@ -3,7 +3,6 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 class Author(models.Model):
-
     name = models.OneToOneField(User, on_delete=models.CASCADE )
 
     def get_absolute_url(self):
@@ -13,7 +12,6 @@ class Author(models.Model):
         return str(self.name)
 
 class Book(models.Model):
-
     title = models.CharField(max_length=255, null=False, blank=False)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=False, blank=False, related_name='book_author')
 
