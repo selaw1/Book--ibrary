@@ -31,7 +31,7 @@ class AuthorDetailView(DetailView):
 
 class AuthorCreateView(CreateView):
     model = Author
-    template_name = 'books/author_create.html'
+    template_name = 'registration/author_create.html'
     form_class = AuthorCreateForm
 
     def form_valid(self, form):

@@ -1,34 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ToDo App{% endblock %}</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .asteriskField {
+            display: none;
+        }
 
-    <title>{% block title %}Home Page{% endblock %}</title>
+        .container {
+            width: 50%;
+        }
+
+        .list-group li   a{
+            text-decoration: none;
+            font-size: large;
+            font-weight: 500;
+        }
+    </style>
 </head>
-<style>
-    .asteriskField {
-    display: none;
-}
 
-</style>
 <body>
-
-    <main>
-        <div class="container-fluid">
-            <div class="d-flex align-items-center py-5">
-                <div class="col-md-6 col-12 col-lg-4 mx-auto">
-                    {% block content %}
-                    {% endblock %}                
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">About</h4>
+                        <p class="text-muted">Book library app that shoes the power of ORM and inlineformsets</p>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a href="{% url 'books:home' %}" class="navbar-brand d-flex align-items-center">
+                    <strong>Book Library</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Book Library</h1>
+                    <p class="lead text-muted">Join and save your favorite books today!</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div style="justify-content: center;">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
     </main>
 
+    <footer class="text-muted py-5">
+        <div class="container">
+            <p class="float-end mb-1">
+                <a href="#" class="btn btn-dark">Back to top</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>
